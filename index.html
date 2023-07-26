@@ -7,6 +7,43 @@
     <title>Random Image Generator</title>
 </head>
 <body>
-    
+    <header>
+        <h1>Random Image Generator</h1>
+    </header>
+
+    <div class="enter-email">
+        <form action="" novalidate>
+            <label for="email">Enter email to recieve your images</label>
+            <input type="email" id="email">
+            <button class="btn">SUBMIT</button>
+        </form>
+    </div>
+
+    <main>
+        <section class="generate-image">
+            <h3>GENERATE IMAGE</h3>
+            <img src="header-img.jpg" alt="">
+            <div class="btn-container">
+                <button class="get-image btn">NEW IMAGE</button>
+                <button class="get-image btn">ADD TO EMAIL</button>
+            </div>
+        </section>
+        <section class="send-image">
+            <h3>SELECTED IMAGES</h3>
+            <div class="user-container">
+                <h5 class="curent-email">CURRENT EMAIL</h5>
+                <div class="img-container">
+                    <img src="header-img.jpg" alt="">
+                    <img src="header-img.jpg" alt="">
+                </div>
+            </div>
+            <button class="email btn">SEND IMAGES</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>All images generated from the <strong><a href="https://unsplash.com/" target="_BLANK">Unsplash API</a></strong></p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>

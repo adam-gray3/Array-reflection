@@ -1,0 +1,26 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, sans-serif;
+}
+
+body{
+    background-color: $light-color;
+}
+
+//BUTTON STYLES
+.btn{
+    padding: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    border: none;
+    background-color: $primary-color;
+    color: $light-txt-color;
+    border-radius: 4px;
+
+    &:hover{
+        background-color: lighten($primary-color, 10);
+    }
+}

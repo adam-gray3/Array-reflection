@@ -1,0 +1,25 @@
+.enter-email{
+    margin: 2rem;
+
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    label{
+        margin-bottom: 0.5rem;
+    }
+
+    input{
+        padding: 0.5rem;
+        width: 100%;
+        outline: none;
+        border: 2px solid $secondary-color;
+        border-radius: 4px;
+
+        @media(min-width: 770px){
+            width: 25%;
+        }
+    }
+}
