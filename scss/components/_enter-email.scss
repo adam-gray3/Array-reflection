@@ -23,3 +23,17 @@
         }
     }
 }
+
+small{
+    display: none;
+    margin-bottom: 0.5rem;
+}
+
+.error.active{
+    display: block;
+    color: red;
+}
+
+input.active{
+    border: 1px solid red;
+}

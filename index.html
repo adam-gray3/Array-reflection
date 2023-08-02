@@ -13,8 +13,9 @@
 
     <div class="enter-email">
         <form action="" novalidate>
-            <label for="email">Enter email to recieve your images</label>
-            <input type="email" id="email">
+            <label for="email">Enter email then attach your images</label>
+            <small class="error">ERROR</small>
+            <input type="email" id="email" class="email-input">
             <button class="btn">SUBMIT</button>
         </form>
     </div>
@@ -22,22 +23,15 @@
     <main>
         <section class="generate-image">
             <h3>GENERATE IMAGE</h3>
-            <img src="header-img.jpg" alt="">
+            <img class="current-img" src="" alt="">
             <div class="btn-container">
                 <button class="get-image btn">NEW IMAGE</button>
-                <button class="get-image btn">ADD TO EMAIL</button>
+                <button class="add-img btn">ADD TO EMAIL</button>
+                <small class="email-error"></small>
             </div>
         </section>
         <section class="send-image">
             <h3>SELECTED IMAGES</h3>
-            <div class="user-container">
-                <h5 class="curent-email">CURRENT EMAIL</h5>
-                <div class="img-container">
-                    <img src="header-img.jpg" alt="">
-                    <img src="header-img.jpg" alt="">
-                </div>
-            </div>
-            <button class="email btn">SEND IMAGES</button>
         </section>
     </main>
 
