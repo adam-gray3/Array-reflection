@@ -22,9 +22,14 @@
         margin-bottom: 2rem;
     }
 
+    .main-img{
+        width: 200px;
+        height: 200px;
+    }
+
     img{
         width: 100%;
-        max-width: 200px;
+        height: 100%;
     }
     
     //USER DIV STYLES
@@ -56,7 +61,7 @@
 
     img{
         max-width: 100px;
-        height: auto;
+        max-height: 100px;
         &:hover{
             cursor: pointer;
             opacity: 0.8;
@@ -82,12 +87,11 @@
     border: 3px solid red;
 }
 
-.clear{
-    margin-top: 1rem;
-    background-color: #fff;
-    color: $primary-color;
+//DELETE TEXT 
+.delete{
+    display: none;
+}
 
-    &:hover{
-        color: #fff;
-    }
+.delete.active{
+    display: block;
 }

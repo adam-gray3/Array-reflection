@@ -6,12 +6,12 @@ const emailError = document.querySelector(".email-error");
 const validEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const newImg = document.querySelector(".get-image");
 const addImgBtn = document.querySelector(".add-img");
-const clearImgBtn = document.querySelector(".clear");
 const currentImg = document.querySelector(".current-img");
 const generateImg = document.querySelector(".generate-image");
 const sendImg = document.querySelector(".send-image");
 const emailList = [];
 let imgList = [];
+
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -32,7 +32,7 @@ form.addEventListener("submit", (e) => {
 //FETCH IMAGE
 const fetchImg = async () => {
     try{
-        const res = await fetch("https://api.unsplash.com/photos/random?client_id=5ZNPr6lpotW5ZzVA-5flSVoMGjL2WEQbKS02GDBE-Ss");
+        const res = await fetch(`https://api.unsplash.com/photos/random/?${client_id}`);
         const data = await res.json();
         const imgSrc = data.urls.small;
         currentImg.src = imgSrc;
@@ -63,8 +63,8 @@ const validateEmail = (email) => {
 const updateUser = (email) => {
     const currentEmail = emailList.slice(-1);
     const current = emailList.indexOf(currentEmail[0]);
-   
-    //CREATE USER & IMG DIV
+
+    // CREATE USER & IMG DIV
     const userSection = document.createElement("div");
     const imgContainer = document.createElement("div");
     const userEmail = document.createElement("h5");
@@ -78,7 +78,8 @@ const updateUser = (email) => {
     imgContainer.setAttribute("id", current);
     imageSection.append(userSection)
     //ADD TO IMAGE CONTAINER
-    userSection.append(imgContainer);
+    userSection.append(imgContainer);   
+    imageSection.append(userSection) 
 }; 
 
 //ADDS IMAGES TO CARD 
@@ -100,27 +101,28 @@ const addImageToUser = () => {
         return
     }
     imgList.push(currentImg.src)
-    
     addCurrentImage(currentImg.src)
 };
+
 
 //ADDS IMAGE TO CORRECT EMAIL
 const addCurrentImage = (image) => {
     //GET LAST EMAIL ENTERED
     const lastEmail = emailList.slice(-1);
     const currentEmail = emailList.indexOf(lastEmail[0]);
+    
     //CREATE NEW IMAGE ELEMENT
     const imgToAdd = document.createElement("img");
     imgToAdd.classList.add("added-img")
     imgToAdd.src = image;
 
-    const clear = document.createElement("span");
-    clear.innerHTML = "Click on image to remove";
-    
+    //SHOW DELETE TEXT WHEN IMAGES ADDED
+    const del = document.querySelector(".delete");
+    del.classList.add("active")
+
     //GET CONTAINER FOR CURRENT EMAIL ADDRESS
     const imgHolder = document.getElementById(currentEmail);
     imgHolder.append(imgToAdd);
-    imgHolder.append(clear);
 };
 
 
@@ -165,6 +167,9 @@ addImgBtn.addEventListener("click", () => {
 //CLEAR IMAGES 
 imageSection.addEventListener("click", (e) => {
     if(e.target.classList.contains("added-img")){
+        //REMOVE IMAGE FROM IMAGE LIST 
+        imgList.pop(e.target.src);
+        //REMOVE IMAGE FROM DOM 
         e.target.remove();
     }
 });
