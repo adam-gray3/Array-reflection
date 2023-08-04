@@ -168,7 +168,9 @@ addImgBtn.addEventListener("click", () => {
 imageSection.addEventListener("click", (e) => {
     if(e.target.classList.contains("added-img")){
         //REMOVE IMAGE FROM IMAGE LIST 
-        imgList.pop(e.target.src);
+       imgList = imgList.filter(img => {
+            return img !== e.target.src
+        })
         //REMOVE IMAGE FROM DOM 
         e.target.remove();
     }
