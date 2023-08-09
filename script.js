@@ -12,7 +12,6 @@ const sendImg = document.querySelector(".send-image");
 const emailList = [];
 let imgList = [];
 
-
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     //CHECK IF EMAIL ALREADY EXSISTS    
@@ -64,22 +63,12 @@ const updateUser = (email) => {
     const currentEmail = emailList.slice(-1);
     const current = emailList.indexOf(currentEmail[0]);
 
-    // CREATE USER & IMG DIV
-    const userSection = document.createElement("div");
-    const imgContainer = document.createElement("div");
-    const userEmail = document.createElement("h5");
-    imgContainer.classList.add("img-container");
-    userEmail.classList.add("current-email");
-    //ADD EMAIL TO TITLE
-    userEmail.innerHTML = email;
-    userSection.prepend(userEmail);
-    userSection.classList.add("user");
-    //GIVE IMAGE CONTAINER INDEX OF EMAIL ADDRESS AS ID
-    imgContainer.setAttribute("id", current);
-    imageSection.append(userSection)
-    //ADD TO IMAGE CONTAINER
-    userSection.append(imgContainer);   
-    imageSection.append(userSection) 
+    const displayUser = `<div class="user">
+                            <h5 class="current-email">${email}</h5>
+                            <div class="img-container" id="${current}"></div>
+                         </div>`;
+
+    imageSection.innerHTML += displayUser;
 }; 
 
 //ADDS IMAGES TO CARD 
@@ -110,11 +99,8 @@ const addCurrentImage = (image) => {
     //GET LAST EMAIL ENTERED
     const lastEmail = emailList.slice(-1);
     const currentEmail = emailList.indexOf(lastEmail[0]);
-    
-    //CREATE NEW IMAGE ELEMENT
-    const imgToAdd = document.createElement("img");
-    imgToAdd.classList.add("added-img")
-    imgToAdd.src = image;
+
+    const displayImg = `<img src="${image}" class="added-img">`
 
     //SHOW DELETE TEXT WHEN IMAGES ADDED
     const del = document.querySelector(".delete");
@@ -122,7 +108,7 @@ const addCurrentImage = (image) => {
 
     //GET CONTAINER FOR CURRENT EMAIL ADDRESS
     const imgHolder = document.getElementById(currentEmail);
-    imgHolder.append(imgToAdd);
+    imgHolder.innerHTML += displayImg;
 };
 
 
