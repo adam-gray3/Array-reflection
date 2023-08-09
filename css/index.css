@@ -151,8 +151,7 @@ main {
 }
 .generate-image .main-img, .send-image .main-img {
   width: 200px;
-  max-height: 200px;
-  height: auto;
+  height: 200px;
   overflow: hidden;
 }
 .generate-image img, .send-image img {

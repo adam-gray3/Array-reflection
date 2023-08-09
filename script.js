@@ -12,6 +12,7 @@ const sendImg = document.querySelector(".send-image");
 const emailList = [];
 let imgList = [];
 
+
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     //CHECK IF EMAIL ALREADY EXSISTS    
